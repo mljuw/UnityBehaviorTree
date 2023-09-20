@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05a73ad9222f4c8da116391c0f3d25e6, type: 3}
+  m_Name: bttree
+  m_EditorClassIdentifier: 
+  stickies:
+  - rid: 8225109393280598018
+  nodes:
+  - rid: 8225109266777505799
+  references:
+    version: 2
+    RefIds:
+    - rid: 8225109266777505799
+      type: {class: BTRootNode, ns: Pandora.BehaviorTree, asm: Pandora.BehaviorTree}
+      data:
+        children:
+        - rid: 8225109266777505800
+        auxNodes: []
+        customName: 
+        customColor: {r: 0, g: 0, b: 0, a: 1}
+        visitPos: {x: 552, y: 285.6}
+    - rid: 8225109266777505800
+      type: {class: BTSelectorNode, ns: Pandora.BehaviorTree, asm: Pandora.BehaviorTree}
+      data:
+        children:
+        - rid: 8225109266777505801
+        - rid: 8225109266777505802
+        auxNodes: []
+        customName: 
+        customColor: {r: 0, g: 0, b: 0, a: 1}
+        visitPos: {x: 536, y: 444.80002}
+    - rid: 8225109266777505801
+      type: {class: BTT_Wait, ns: Pandora.BehaviorTree, asm: Pandora.BehaviorTree}
+      data:
+        children: []
+        auxNodes:
+        - rid: 8225109393048338435
+        customName: 
+        customColor: {r: 0, g: 0, b: 0, a: 1}
+        visitPos: {x: 412, y: 626.4}
+        durationRange: {x: 5, y: 5}
+    - rid: 8225109266777505802
+      type: {class: BTT_RunSubTree, ns: Pandora.BehaviorTree, asm: Pandora.BehaviorTree}
+      data:
+        children: []
+        auxNodes: []
+        customName: 
+        customColor: {r: 0, g: 0, b: 0, a: 1}
+        visitPos: {x: 746.4, y: 613.60004}
+        subTreeAsset: {fileID: 11400000, guid: 82a761d5582e8544eae26e4563f37052, type: 2}
+    - rid: 8225109393048338435
+      type: {class: BlackboardDecorator, ns: Pandora.BehaviorTree, asm: Pandora.BehaviorTree}
+      data:
+        children: []
+        auxNodes: []
+        customName: 
+        customColor: {r: 0, g: 0, b: 0, a: 1}
+        visitPos: {x: 0, y: 0}
+        flowAbortMode: 3
+        conditionReversal: 0
+        blackboardKey: Test
+        fieldComparableType: 0
+        condition:
+          opt: 1
+          compareStrValue: 
+          compareIntValue: 1
+          compareFloatValue: 0
+    - rid: 8225109393280598018
+      type: {class: StickyAsset, ns: Pandora.BehaviorTree, asm: Pandora.BehaviorTree}
+      data:
+        title: "\u6CE8\u91CA"
+        content: ...
+        position:
+          serializedVersion: 2
+          x: 412
+          y: 404.80002
+          width: 244
+          height: 350.4
