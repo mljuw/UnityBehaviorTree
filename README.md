@@ -1,9 +1,14 @@
 # UnityBehaviorTree
+
 #Unity 行为树 插件
-#支持
-#1.并行节点
-#2.子行为树节点
-#3.黑板
+
+支持
+
+&nbsp;&nbsp; 1.并行节点
+
+&nbsp;&nbsp; 2.子行为树节点
+
+&nbsp;&nbsp; 3.黑板
 
 
 具体截图如下：
