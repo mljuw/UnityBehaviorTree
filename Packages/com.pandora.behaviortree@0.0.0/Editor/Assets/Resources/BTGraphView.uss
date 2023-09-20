@@ -1,0 +1,189 @@
+Label {
+    font-size: 20px;
+    -unity-font-style: normal;
+    color: rgb(68, 138, 255);
+}
+
+GridBackground {
+    --grid-background-color: rgb(24, 24, 24);
+    --line-color: rgba(193, 196, 192, 0.1);
+    --thick-line-color: rgba(193, 196, 192, 0.1);
+    --spacing: 10;
+}
+
+/*Node #node-border #title #title-button-container #collapse-button #icon*/
+/*{*/
+/*    visibility: hidden;*/
+/*}*/
+
+GraphRootNode #title
+{
+    height: 60px;
+    width:120px;
+}
+
+GraphRootNode Label#title-label
+{
+    font-size: 28px;
+}
+
+.node
+{
+    min-width: 120px;
+}
+
+.node>#node-border
+{
+    overflow: visible;
+}
+
+.node VisualDebugBorder>.fade-border
+{
+    border-radius: 5px;
+    border-left-width:3px;
+    border-right-width:3px;
+    border-top-width: 3px;
+    border-bottom-width:3px;
+    width:100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0);
+    border-color: rgba(55,55,255,0);
+    
+    margin-left:2px;
+    margin-top:2px;
+}
+
+.node .graph-node-element VisualDebugBorder>.fade-border 
+{
+    margin-left:2px;
+    margin-right:2px;
+    width:94%;
+    height:90%;
+    border-width: 1px;
+}
+
+.node VisualDebugBorder>.fade-border.activated
+{
+    border-color: rgba(55,55,255,1);
+}
+
+.node VisualDebugBorder>.fade-border.blink-border
+{
+    border-color: rgba(255,55,255,0);
+}
+
+.node VisualDebugBorder>.fade-border.blink-border.activated
+{
+    border-color: rgba(255,55,255,1);
+}
+
+.node BlackboardDecoratorElement VisualDebugBorder>.fade-border.blink-border.activated
+{
+    border-color: rgba(255,0,0,1);
+}
+
+.node #contents
+{
+    background-color : rgba(63,63,63,0.8);
+}
+.node .port.input
+{
+    border-top-left-radius: 5;
+    border-top-right-radius: 5;
+}
+.node .port.output
+{
+    border-bottom-left-radius: 5;
+    border-bottom-right-radius: 5;
+}
+.node .port
+{
+    justify-content: center;
+    background-color: black;
+}
+
+.node .port #type
+{
+    visibility: hidden;
+    margin: 0;
+}
+
+.node Label#title-label
+{
+    width:100%;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    margin: 0;
+}
+
+.node #contents>#top
+{
+    flex-direction: column;
+}
+
+.node.leaf-node .output
+{
+    visibility: hidden;
+    height:0;
+}
+
+.node .node-idx
+{
+    position: absolute;
+    background-color: rgba(100,100,100, 0.5);
+    min-width: 25px;
+    min-height: 25px;
+    align-items: center;
+    align-self: auto;
+    margin-left:auto;
+    margin-right: -10px;
+    margin-top: -10px;
+    right: 0;
+}
+
+.node .node-idx>Label
+{
+    position: absolute;
+    color:red;
+    font-size: 10px;
+    -unity-font-style: bold;
+}
+
+BTEdge.edge
+{
+    --selected-edge-color:rgb(0, 255, 0);
+    --ghost-edge-color: rgba(255,255,255, 10);
+    --edge-width:2;
+}
+.graph-node-element
+{
+    margin-left: 0;
+    margin-right: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: rgba(0.247, 0.247, 0.247, 0);
+    width: 100%;
+    overflow: visible;
+}
+
+.graph-node-element Label#title
+{
+    flex: 0 0 auto;
+    justify-content: center;
+    align-content: center;
+    -unity-text-align: middle-center;
+    padding: 0;
+    width: 100%;
+}
+
+.graph-node-element Label#title.selected
+{
+    color:red;
+}
+.graph-node-element Label#live
+{
+    position:absolute;
+    color:green;
+    left:5px;
+    -unity-text-align: middle-center;
+}

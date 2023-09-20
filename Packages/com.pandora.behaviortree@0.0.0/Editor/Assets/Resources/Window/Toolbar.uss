@@ -1,0 +1,27 @@
+#tool-bar
+{
+    flex-direction: row;
+    height: 32px;
+    border-width: 1px;
+    border-color: black;
+    padding-top:2px;
+    padding-bottom: 2px;
+}
+
+#tool-bar Button
+{
+    max-width: 120px;
+    align-content: center;
+}
+
+#tool-bar Button.need-save
+{
+    color: red;
+}
+
+#tool-bar DropdownField>Label
+{
+    max-width: 60px;
+    min-width: 35px;
+    -unity-text-align: middle-center;
+}

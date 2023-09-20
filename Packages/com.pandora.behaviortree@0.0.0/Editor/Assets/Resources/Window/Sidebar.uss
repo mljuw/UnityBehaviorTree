@@ -1,0 +1,105 @@
+#side-bar
+{
+    align-self: flex-end;
+    width:450px;
+}
+
+#btn-sidebar
+{
+    position: absolute;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:20px;
+    padding-bottom:20px;
+    background-color: rgb(50, 50, 50);
+}
+
+#side-bar #header-container>*
+{
+    margin-bottom: 5px;
+}
+
+#side-bar #header-container>Label
+{
+    -unity-font-style : normal;
+    margin-left:3px;
+}
+
+#side-bar ScrollView #container>*
+{
+    margin-bottom: 5px;
+}
+
+#side-bar ScrollView #container #delimiter
+{
+    align-self: flex-end;
+}
+
+#side-bar ScrollView #container>Label
+{
+    -unity-font-style : normal;
+    margin-left:3px;
+}
+
+#side-bar ScrollView #container Label
+{
+    -unity-font-style : normal;
+}
+
+#side-bar ScrollView #container NodeWeightField
+{
+    flex-direction: row;
+}
+
+#side-bar ScrollView #container NodeWeightField #WeightField>Label
+{
+    min-width: 60px;
+}
+#side-bar ScrollView #container NodeWeightField #WeightField>IntegerInput
+{
+    min-width: 80px;
+}
+
+#side-bar ScrollView #container NodeWeightField IntegerField>Label
+{
+    min-width: 60px;
+}
+
+#side-bar ScrollView #container *>Label
+{
+    max-width: 240px;
+    min-width: 120px;
+}
+
+#side-bar ScrollView #container Vector2IntField>VisualElement Label
+{
+    min-width:10px;
+}
+
+#side-bar ScrollView #container Vector2Field>VisualElement Label
+{
+    min-width:10px;
+
+}
+
+#side-bar ScrollView #container Vector3IntField>VisualElement Label
+{
+    min-width:10px;
+}
+
+#side-bar ScrollView #container Vector3Field>VisualElement Label
+{
+    min-width:10px;
+}
+
+#side-bar ScrollView #container #listField-container
+{
+    width:100%;
+    border-radius: 10px;
+    border-color:gray;
+    border-width: 1px;
+    margin: 2px;
+    padding: 2px;
+}

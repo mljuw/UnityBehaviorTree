@@ -1,0 +1,16 @@
+{
+    "name": "Pandora.BehaviorTree",
+    "rootNamespace": "Pandora.BehaviorTree",
+    "references": [
+        "GUID:35ee7d0c5314515459ffe5953cd6740d"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

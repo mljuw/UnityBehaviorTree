@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement>
+        <ui:VisualElement name="header-container" >
+            <ui:Label name="lblTitle" />
+            <ui:Label name="lblDesc" />
+
+            <ui:TextField picking-mode="Ignore" label="自定义名称" name="txtCustomName" />
+            <uie:ColorField picking-mode="Ignore" label="自定义颜色" name="customColorField" />
+            
+        </ui:VisualElement>
+        
+        <ui:VisualElement name="container">
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

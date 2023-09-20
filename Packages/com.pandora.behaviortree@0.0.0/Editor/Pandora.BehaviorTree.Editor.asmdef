@@ -1,0 +1,20 @@
+{
+    "name": "Pandora.BehaviorTree.Editor",
+    "rootNamespace": "Pandora.BehaviorTree",
+    "references": [
+        "GUID:35ee7d0c5314515459ffe5953cd6740d",
+        "GUID:eb9b665fc670692488e6f0d482be98fd",
+        "GUID:94edeffcefa300041a9eecbc378d400d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

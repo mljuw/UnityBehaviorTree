@@ -1,0 +1,143 @@
+VisualElement.blackboard-field
+{
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+
+    border-radius: 10px;
+
+    margin: 5px 2px;
+    padding: 8px 2px;
+    border-color: aliceblue;
+    
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+VisualElement.blackboard-field.float
+{
+    border-color:rgba(49,203,142,1);
+}
+
+VisualElement.blackboard-field.int32
+{
+    border-color:rgba(49,135,115,1);
+}
+
+VisualElement.blackboard-field.string
+{
+    border-color:rgba(206,115,129,1);
+}
+
+VisualElement.blackboard-field.vector2
+{
+    border-color:rgba(255, 233, 59, 1);
+}
+
+VisualElement.blackboard-field.vector3
+{
+    border-color:rgba(100, 000, 159, 1);
+}
+
+VisualElement.blackboard-field.object
+{
+    border-color:rgba(102,148,234,1);
+}
+
+VisualElement.blackboard-field #lblValue
+{
+    align-self: center;
+}
+
+VisualElement.blackboard-field #lblValueTitle
+{
+    align-self: center;
+}
+
+
+
+.blackboard-field>TextField
+{
+    
+}
+
+.blackboard-field>TextField>Label
+{
+    max-width: 80px;
+    min-width: 40px;
+}
+.blackboard-field>TextField>TextInput
+{
+    min-width: 120px;
+}
+
+.blackboard-field .blackboard-field-right
+{
+    flex-grow: 2;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.blackboard-field DropdownField
+{
+    width:120px
+}
+
+.blackboard-field DropdownField>Label
+{
+    max-width: 30px;
+    min-width: 30px;
+}
+
+.blackboard-field DropdownField>.unity-popup-field__input
+{
+    max-width: 80px;
+    min-width: 60px;
+}
+
+.blackboard-field #btnDel
+{ 
+}
+.blackboard-field .modifyValueField
+{
+    width: 280px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.blackboard-field .modifyValueField>*>Label
+{
+    min-width:35px;
+}
+
+.blackboard-field #modify-container
+{
+    flex-direction: row;
+    align-content: center;
+}
+
+.blackboard-field #modify-container>#lblValue
+{
+    width: 150px;
+    overflow: hidden;
+}
+
+.blackboard-field #modify-container  ModifyFieldValueElement
+{
+    align-self: center;
+}
+
+.blackboard-field #modify-container  ModifyFieldValueElement TextField>Label
+{
+    min-width: 40px;
+    padding-left: 0px;
+    padding-top: 0px;
+    -unity-text-align: middle-center;
+}
+
+.blackboard-field #modify-container  ModifyFieldValueElement TextField>TextInput
+{
+    min-width: 120px;
+}

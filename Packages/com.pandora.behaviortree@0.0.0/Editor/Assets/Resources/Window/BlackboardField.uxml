@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="container" class="blackboard-field" style="flex-direction: row;">
+        <ui:TextField picking-mode="Ignore" label="变量名" value="filler text" text="" name="txtParamName" />
+        <ui:VisualElement name="defaultValue-container">
+            
+        </ui:VisualElement>
+        <ui:Label picking-mode="Ignore" name="lblValueTitle" text="" style="" />
+        <ui:VisualElement name="modify-container">
+            <ui:Label picking-mode="Ignore" name="lblValue" text="" style="" />
+        </ui:VisualElement>
+        <ui:VisualElement class="blackboard-field-right" >
+            <ui:DropdownField label="类型" index="0" choices="int32,float,string,vector3,vector2,object" name="ddlType"  />
+            <ui:Button text="删除字段" display-tooltip-when-elided="true" name="btnDel"  />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

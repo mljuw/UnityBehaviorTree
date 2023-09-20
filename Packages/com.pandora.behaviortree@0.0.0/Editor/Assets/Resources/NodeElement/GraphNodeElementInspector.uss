@@ -1,0 +1,43 @@
+TextField Label
+{
+    min-width: 50px;
+}
+
+#header-container
+{
+    padding:4px;
+    border-width: 1px;
+    border-color: dimgray;
+    border-radius: 10px;
+}
+
+#header-container>#lblTitle
+{
+    font-size:22px;
+    -unity-font-style: bold;
+}
+
+#header-container>#lblDesc
+{
+    font-size:12px;
+    color: darkgrey;
+}
+
+#container
+{
+    flex-direction: column;
+    padding:4px;
+    margin-top: 10px;
+    border-width: 1px;
+    border-color: dimgray;
+    border-radius: 10px;
+    min-height: 400px;
+}
+
+#container #btnSave
+{
+    align-self: center;
+    width:80%;
+    position: absolute;
+    bottom:8px;
+}
