@@ -8,6 +8,6 @@
 
 具体截图如下：
 
-![image](https://github.com/mljuw/UnityBehaviorTree/blob/master/pic/1.jpg)
-![image](https://github.com/mljuw/UnityBehaviorTree/blob/master/pic/2.jpg)
-![image](https://github.com/mljuw/UnityBehaviorTree/blob/master/pic/3.jpg)
+![image](https://github.com/mljuw/UnityBehaviorTree/blob/main/pic/1.jpg)
+![image](https://github.com/mljuw/UnityBehaviorTree/blob/main/pic/2.jpg)
+![image](https://github.com/mljuw/UnityBehaviorTree/blob/main/pic/3.jpg)
