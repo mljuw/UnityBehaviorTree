@@ -12,7 +12,6 @@ namespace Pandora.BehaviorTree
         Service,
         Decorator,
         Task,
-        Parallel,
     }
 
     public enum ActiveNodeStateType
@@ -76,15 +75,12 @@ namespace Pandora.BehaviorTree
 
 
         /// <summary>
-        /// 是否组合节点
+        /// 是否合成节点
         /// </summary>
         /// <returns></returns>
         public bool NodeIsComposite()
         {
-            return NodeType == BTNodeType.Selector
-                   || NodeType == BTNodeType.Sequence
-                   || NodeType == BTNodeType.Root
-                   || NodeIsLeaf() || NodeIsParallel();
+            return NodeType is BTNodeType.Selector or BTNodeType.Sequence or BTNodeType.Root;
         }
 
 
@@ -95,15 +91,6 @@ namespace Pandora.BehaviorTree
         public bool NodeIsLeaf()
         {
             return NodeType == BTNodeType.Task;
-        }
-
-        /// <summary>
-        /// 是否并行节点
-        /// </summary>
-        /// <returns></returns>
-        public bool NodeIsParallel()
-        {
-            return NodeType == BTNodeType.Parallel;
         }
 
 

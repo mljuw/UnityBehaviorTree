@@ -294,6 +294,8 @@ namespace Pandora.BehaviorTree
             return nodeElements;
         }
 
+        #region 右键菜单
+
         public override void BuildContextualMenu(ContextualMenuPopulateEvent evt)
         {
             if (GraphView.IsDebug) return;
@@ -301,8 +303,54 @@ namespace Pandora.BehaviorTree
             evt.menu.AppendSeparator();
             evt.menu.AppendAction("删除节点", GraphView.OnClickDeleteNode,
                 !GraphView.IsDebug ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled);
+
+            if (nodeData.NodeType != BTNodeType.Root)
+            {
+                if (evt.target is BTGraphNode)
+                {
+                    evt.menu.AppendAction("添加装饰器", OnContextMenuCreateItem, DropdownMenuAction.AlwaysEnabled);
+                    evt.menu.AppendSeparator();
+                }
+
+                if (GraphView.CurSelectedNodeElement is GraphNodeElement graphNodeElement &&
+                    graphNodeElement.owner == this)
+                {
+                    evt.menu.AppendSeparator();
+                    evt.menu.AppendAction("删除装饰器", OnClickDeleteNodeElement);
+                }
+            }
         }
         
+        /// <summary>
+        /// 删除节点元素
+        /// </summary>
+        /// <param name="obj"></param>
+        private void OnClickDeleteNodeElement(DropdownMenuAction obj)
+        {
+            if (GraphView.CurSelectedNodeElement is GraphNodeElement graphNodeElement && graphNodeElement.owner == this)
+            {
+                //删除节点数据
+                var compositeNode = nodeData as BTCompositeNode;
+                compositeNode.auxNodes.Remove(graphNodeElement.nodeData as BTAuxiliaryNode);
+                RemoveElement(graphNodeElement);
+                GraphView.OnRemoveNodeElement(this, graphNodeElement);
+            }
+        }
+
+        /// <summary>
+        /// 点击创建节点菜单后显示 具体的 节点创建类型选择窗口
+        /// </summary>
+        /// <param name="action"></param>
+        private void OnContextMenuCreateItem(DropdownMenuAction action)
+        {
+            var screenMousePosition = GraphView.window.position.position + action.eventInfo.mousePosition;
+            var ctx = new SearchWindowContext(screenMousePosition);
+            var provider = GraphView.nodeElementCreateProvider;
+            provider.SetParentGraphNode(this);
+            SearchWindow.Open(ctx, provider);
+        }
+        
+        #endregion
         
         #region 实现IBTEditableElement接口
         

@@ -739,39 +739,19 @@ namespace Pandora.BehaviorTree
             //处理链接的节点
             if (curNode.outPort.connected)
             {
-                //如果是并行节点
-                if (curNode.nodeData.NodeIsParallel() && nodeData is BTParallelNode parallelNode)
+                //按照x坐标排序, 最左边排在最前面
+                var connections = curNode.outPort.connections.ToList();
+                connections.Sort(ComparisonByPosition);
+                //获取输出端线
+                foreach (var edge in connections)
                 {
-                    var connections = curNode.outPort.connections.ToList();
-                    if (connections.Count > 0 && connections[0].input.connected  && connections[0].input is BTNodePort childPort)
+                    //判断是否有连接到下一个节点的输入端
+                    if (edge.input.connected && edge.input is BTNodePort childPort)
                     {
-                        var taskNode = (BTTaskNode)SaveSubNode(ref asset, childPort.Owner, curNode,
-                            ref allNode);
-                        
-                        if (null != taskNode)
-                        {
-                            parallelNode.children.Clear();
-                            parallelNode.children.Add(taskNode);
-                        }
-                        
+                        //作为子节点保存
+                        nodeData.children.Add(SaveSubNode(ref asset, childPort.Owner, curNode,
+                            ref allNode));
                     }
-                }
-                else//作为子节点处理
-                {
-                    //按照x坐标排序, 最左边排在最前面
-                    var connections = curNode.outPort.connections.ToList();
-                    connections.Sort(ComparisonByPosition);
-                    //获取输出端线
-                    foreach (var edge in connections)
-                    {
-                        //判断是否有连接到下一个节点的输入端
-                        if (edge.input.connected && edge.input is BTNodePort childPort)
-                        {
-                            //作为子节点保存
-                            nodeData.children.Add(SaveSubNode(ref asset, childPort.Owner, curNode,
-                                ref allNode));
-                        }
-                    }    
                 }
                 
             }
@@ -899,20 +879,15 @@ namespace Pandora.BehaviorTree
                     debugEdgeList.AddLast(edge);
                 }
             }
-
-            //如果是一个组合节点, 或者叶子节点都有助手节点
-            if (node.NodeIsComposite()
-                && node is BTCompositeNode compositeNode)
+            
+            var auxNodesProp = nodeProp.FindPropertyRelative(nameof(node.auxNodes));
+            for (int i = 0; i < node.auxNodes.Count; ++i)
             {
-                var auxNodesProp = nodeProp.FindPropertyRelative(nameof(compositeNode.auxNodes));
-                for (int i = 0; i < compositeNode.auxNodes.Count; ++i)
-                {
-                    ++index;
-                    var auxNode = compositeNode.auxNodes[i];
-                    var auxNodeProp = auxNodesProp.GetArrayElementAtIndex(i);
-                    //加载助手节点
-                    LoadAuxNode(auxNode, auxNodeProp, btGraphNode, ref index);
-                }
+                ++index;
+                var auxNode = node.auxNodes[i];
+                var auxNodeProp = auxNodesProp.GetArrayElementAtIndex(i);
+                //加载助手节点
+                LoadAuxNode(auxNode, auxNodeProp, btGraphNode, ref index);
             }
             
             
@@ -1010,18 +985,14 @@ namespace Pandora.BehaviorTree
             curNode.SetNodeIndex(index);
 
             //如果是一个组合节点，则加载它的助手节点
-            if (curNode.nodeData.NodeIsComposite() 
-                && curNode is BtCompositeGraphNode graphCompositeNode)
+            foreach (var ele in curNode.GetNodeElements())
             {
-                foreach (var ele in graphCompositeNode.GetNodeElements())
+                index++;
+                if (findDirtyNode && ele.GetNodeIndex() != index)
                 {
-                    index++;
-                    if (findDirtyNode && ele.GetNodeIndex() != index)
-                    {
-                        return parentNode;
-                    }
-                    ele.SetNodeIndex(index);
+                    return parentNode;
                 }
+                ele.SetNodeIndex(index);
             }
 
             //如果输出端有连接下一个节点则作为子节点处理

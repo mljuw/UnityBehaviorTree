@@ -11,7 +11,7 @@ namespace Pandora.BehaviorTree
         
         public BTParallelNode()
         {
-            nodeType = BTNodeType.Parallel;
+            nodeType = BTNodeType.Selector;
         }
 
         public override Type GetInstanceClass()
