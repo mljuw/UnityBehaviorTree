@@ -77,7 +77,7 @@ namespace Pandora.BehaviorTree
         private IBTBlackboardFieldInst GetField()
         {
             if (null != _fieldInst) return _fieldInst;
-            _fieldInst = treeInst.Blackboard.GetField(Def.blackboardKey);
+            _fieldInst = treeInst.Blackboard.GetField(Define.blackboardKey);
             return _fieldInst;
         }
         
@@ -107,14 +107,14 @@ namespace Pandora.BehaviorTree
 
         private bool Compare()
         {
-            if (Def.condition.opt == BCValueCompareOpt.IsSetValue)
+            if (Define.condition.opt == BCValueCompareOpt.IsSetValue)
             {
                 return _fieldInst.IsSetValue;
             }
             int compareVal = 0;
             if (_fieldInst.FieldType == typeof(string) )
             {
-                compareVal = String.Compare(((BTBlackboardFieldInst<string>)_fieldInst).Value, Def.condition.compareStrValue, StringComparison.Ordinal);
+                compareVal = String.Compare(((BTBlackboardFieldInst<string>)_fieldInst).Value, Define.condition.compareStrValue, StringComparison.Ordinal);
             }
             else if (_fieldInst.FieldType == typeof(object))
             {
@@ -123,19 +123,19 @@ namespace Pandora.BehaviorTree
             }
             else if (_fieldInst.FieldType == typeof(Vector3))
             {
-                compareVal = ((BTBlackboardFieldInst<Vector3>)_fieldInst).Value.magnitude.CompareTo(Def.condition.compareFloatValue);
+                compareVal = ((BTBlackboardFieldInst<Vector3>)_fieldInst).Value.magnitude.CompareTo(Define.condition.compareFloatValue);
             }
             else if (_fieldInst.FieldType == typeof(Vector2))
             {
-                compareVal = ((BTBlackboardFieldInst<Vector2>)_fieldInst).Value.magnitude.CompareTo(Def.condition.compareFloatValue);
+                compareVal = ((BTBlackboardFieldInst<Vector2>)_fieldInst).Value.magnitude.CompareTo(Define.condition.compareFloatValue);
             }
             else if (_fieldInst.FieldType == typeof(int))
             {
-                compareVal =  ((BTBlackboardFieldInst<int>)_fieldInst).Value.CompareTo(Def.condition.compareIntValue);
+                compareVal =  ((BTBlackboardFieldInst<int>)_fieldInst).Value.CompareTo(Define.condition.compareIntValue);
             }
             else if (_fieldInst.FieldType == typeof(float))
             {
-                compareVal = ((BTBlackboardFieldInst<float>)_fieldInst).Value.CompareTo(Def.condition.compareFloatValue);
+                compareVal = ((BTBlackboardFieldInst<float>)_fieldInst).Value.CompareTo(Define.condition.compareFloatValue);
             }
 
             return Compare(compareVal);
@@ -144,7 +144,7 @@ namespace Pandora.BehaviorTree
         private bool Compare(int compareVal)
         {
             
-            switch (Def.condition.opt)
+            switch (Define.condition.opt)
             {
                 case BCValueCompareOpt.Equal:
                     return compareVal == 0;
@@ -168,7 +168,7 @@ namespace Pandora.BehaviorTree
         {
             if (GetField() == null) return false;
             
-            if (Def.condition.opt == BCValueCompareOpt.IsSetValue)
+            if (Define.condition.opt == BCValueCompareOpt.IsSetValue)
             {
                 return _fieldInst.IsSetValue;
             }

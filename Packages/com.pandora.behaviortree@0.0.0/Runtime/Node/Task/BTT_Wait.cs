@@ -32,7 +32,7 @@ namespace Pandora.BehaviorTree
 
         public float GetDuration()
         {
-            return Random.Range(Def.durationRange.x, Def.durationRange.y);
+            return Random.Range(Define.durationRange.x, Define.durationRange.y);
         }
 
         public override void TickNode(float deltaTime)

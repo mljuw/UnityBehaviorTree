@@ -47,16 +47,16 @@ namespace Pandora.BehaviorTree
     
     public abstract class DecoratorNodeInst<T> : BTAuxiliaryNodeInst<T>, IDecoratorNodeInst where T : BTDecoratorNode
     {
-        public BTFlowAbortMode FlowAbortMode => Def.flowAbortMode;
+        public BTFlowAbortMode FlowAbortMode => Define.flowAbortMode;
 
         public bool WrappedPerformConditionCheck()
         { 
-            return Def.conditionReversal ? !PerformConditionCheck() : PerformConditionCheck();
+            return Define.conditionReversal ? !PerformConditionCheck() : PerformConditionCheck();
         }
         
         public bool WrappedRawConditionCheck()
         {
-            return Def.conditionReversal ? !RawConditionCheck() : RawConditionCheck();
+            return Define.conditionReversal ? !RawConditionCheck() : RawConditionCheck();
         }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

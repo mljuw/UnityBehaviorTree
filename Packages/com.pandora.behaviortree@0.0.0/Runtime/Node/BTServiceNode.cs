@@ -44,7 +44,7 @@ namespace Pandora.BehaviorTree
             if (countdown <= 0)
             {
                 CheckAndTick(deltaTime);
-                countdown = Def.interval + Random.Range(- Def.randomDeviation, Def.randomDeviation);
+                countdown = Define.interval + Random.Range(- Define.randomDeviation, Define.randomDeviation);
                 countdown = Mathf.Clamp(countdown, 0, countdown);
             }
             else

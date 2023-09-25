@@ -48,7 +48,7 @@ namespace Pandora.BehaviorTree
             //子节点执行成功或者失败都返回父节点
             if(!trickleDown) return BTSpecialChild.ReturnToParent;
             
-            int cfgNum = Def.childrenWeight.Count;
+            int cfgNum = Define.childrenWeight.Count;
             int randNum = -1;
             for (int i = 0; i < childNum; ++i)
             {
@@ -61,7 +61,7 @@ namespace Pandora.BehaviorTree
                 {
                     randNum = Random.Range(0, 100);
                 }
-                if (randNum <= Def.childrenWeight[i].randomNum)
+                if (randNum <= Define.childrenWeight[i].randomNum)
                 {
                     return i;
                 }

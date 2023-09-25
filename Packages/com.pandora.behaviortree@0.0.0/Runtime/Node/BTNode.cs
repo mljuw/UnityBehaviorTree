@@ -30,7 +30,7 @@ namespace Pandora.BehaviorTree
 
     public static class BTSpecialChild
     {
-        public static int ReturnToParent = -2;
+        public static readonly int ReturnToParent = -2;
     }
 
 
@@ -140,15 +140,14 @@ namespace Pandora.BehaviorTree
 
     public class BTNodeInstance<T> : BTNodeInstance where T : BTNode
     {
-        private T def;
-        public T Def => def;
+        public T Define { get; private set; }
 
-        public override BTNode BaseDef => def;
+        public override BTNode BaseDef => Define;
 
-        public override void Init(BehaviorTreeInstance tree, BTNode template)
+        internal override void Init(BehaviorTreeInstance tree, BTNode template)
         {
             base.Init(tree, template);
-            def = (T)template;
+            Define = template as T;
         }
     }
 
@@ -156,29 +155,17 @@ namespace Pandora.BehaviorTree
     {
         protected BehaviorTreeInstance treeInst;
 
-        protected BTNodeInstance parentNode;
-
         public virtual BTNode BaseDef => null;
 
-        public BTNodeInstance ParentNode
-        {
-            get => parentNode;
-            set => parentNode = value;
-        }
+        public BTNodeInstance ParentNode { get; set; }
 
         internal List<BTNodeInstance> children = new();
         
         internal List<IAuxiliaryNodeInst> auxNodes = new();
 
-        protected int nodeIndex;
+        public int NodeIndex { get; set; }
 
-        public int NodeIndex
-        {
-            get => nodeIndex;
-            set => nodeIndex = value;
-        }
-
-        public virtual void Init(BehaviorTreeInstance tree, BTNode template)
+        internal virtual void Init(BehaviorTreeInstance tree, BTNode template)
         {
             treeInst = tree;
         }

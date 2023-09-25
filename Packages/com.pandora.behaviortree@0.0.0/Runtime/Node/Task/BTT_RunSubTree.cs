@@ -48,7 +48,7 @@ namespace Pandora.BehaviorTree
 
         public override void OnActivation()
         {
-            if (null == Def.subTreeAsset)
+            if (null == Define.subTreeAsset)
             {
                 FinishTask(false);
                 return;
@@ -57,7 +57,7 @@ namespace Pandora.BehaviorTree
             subSubTreeInst ??= new BehaviorTreeInstance(treeInst.Owner);
             subSubTreeInst.SetShareBlackboardInst(treeInst.Blackboard);
             subSubTreeInst.StopTree();
-            subSubTreeInst.StartTree(Def.subTreeAsset);
+            subSubTreeInst.StartTree(Define.subTreeAsset);
 
             subSubTreeInst.treeSearchFinish += OnTreeSearchFinish;
         }

@@ -63,12 +63,12 @@ namespace Pandora.BehaviorTree
         private void StartSubTree()
         {
             //开启并行子树
-            if (null != Def.parallelTree)
+            if (null != Define.parallelTree)
             {
                 subSubTreeInst ??= new BehaviorTreeInstance(treeInst.Owner);
                 subSubTreeInst.SetShareBlackboardInst(treeInst.Blackboard);
                 subSubTreeInst.StopTree();
-                subSubTreeInst.StartTree(Def.parallelTree);
+                subSubTreeInst.StartTree(Define.parallelTree);
             }
         }
         
