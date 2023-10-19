@@ -45,6 +45,12 @@ namespace Pandora.BehaviorTree
             isRelevant = false;
         }
         
+        public override void Dispose()
+        {
+            isRelevant = false;
+            base.Dispose();
+        }
+
         /// <summary>
         /// 在进入时调用
         /// 只有叶节点被激活(运行时)才会调用

@@ -71,6 +71,8 @@ namespace Pandora.BehaviorTree
 
         protected void Cleanup()
         {
+            checkPass = false;
+            fieldInst = null;
             treeInst.Blackboard.valueChangeEvent -= BlackboardOnValueChangeEvent;
         }
 
